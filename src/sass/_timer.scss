@@ -1,0 +1,56 @@
+body {
+  background-color: rgb(205, 228, 228);
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ddce25;
+  border-radius: 10px;
+  height: 130px;
+  width: 400px;
+  padding: 15px 18px;
+}
+
+.operator {
+  display: flex;
+
+  &.input,
+  &.startbtn {
+    border-radius: 5px;
+    background-color: bisque;
+    height: 50px;
+    width: 200px;
+    padding-left: 20px;
+    padding-right: 10px;
+    font-size: 20px;
+  }
+}
+
+.input,
+.startbtn {
+  border-radius: 5px;
+  background-color: bisque;
+  height: 50px;
+  width: 200px;
+  padding-left: 20px;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.value {
+  padding: 0;
+  margin-bottom: 10px;
+  width: 48px;
+  height: 55px;
+  display: block;
+  font-size: 3em;
+  line-height: 1.5;
+  font-weight: bold;
+  color: rgb(23, 43, 156);
+}
+
+.label {
+  color: darkred;
+  line-height: 1.5;
+}
