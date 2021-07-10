@@ -20,9 +20,7 @@ class Timer {
     this.intervalId = null;
     this.isActive = false;
     this.onTick = onTick;
-
   }
-
   start() {
     if (this.isActive) {
       return;
@@ -31,6 +29,8 @@ class Timer {
     const FINISHED_DATE = Date.parse(inputDateSelector.value);
       if (FINISHED_DATE < Date.now()) {
         Swal.fire("Please choose a date in the future");
+        // this.isActive = false;
+        console.log(FINISHED_DATE);
         return;
       }
 
@@ -48,7 +48,11 @@ class Timer {
 
   stop () {
     clearInterval(this.intervalId);
-    // this.isActive;
+    this.isActive = false;
+
+    const time = this.convertMs(0);
+
+    this.onTick(time);
   }
 
   convertMs(ms) {
@@ -77,6 +81,7 @@ class Timer {
 
 const timer = new Timer({
   onTick: changeTimerInterface,
+  // defaultStart: removeBtnStartClick,
 })
 
 function changeTimerInterface({ days, hours, minutes, seconds }) {
@@ -85,6 +90,12 @@ function changeTimerInterface({ days, hours, minutes, seconds }) {
   valueRefs.minutes.textContent = `${minutes}`;
   valueRefs.seconds.textContent = `${seconds}`;
 }
+
+// function removeBtnStartClick() {
+//   if (changeTimerInterface() {
+//     btnStart.removeEventListener('click', () => { timer.start() })
+//   }
+// }
 
 // function handleInputDateSelector(e) {
 //   return Date.parse(inputDateSelector.value);
